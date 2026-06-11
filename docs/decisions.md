@@ -71,3 +71,14 @@ Reasoning:
 
 Status:
 Accepted.
+
+## ADR-005: Project Name
+
+Decision:
+PKZ Linux
+
+Reasoning:
+Personal Linux distribution project focused on understanding the entire operating system stack and maintaining a reproducible development environment.
+
+Status:
+Accepted.
