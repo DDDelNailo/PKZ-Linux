@@ -33,16 +33,13 @@ parted -s "$DISK" mklabel gpt
 
 echo "Creating EFI partition..."
 
-parted -s "$DISK" 
-mkpart ESP fat32 1MiB 513MiB
+parted -s "$DISK" mkpart ESP fat32 1MiB 513MiB
 
-parted -s "$DISK" 
-set 1 esp on
+parted -s "$DISK" set 1 esp on
 
 echo "Creating Btrfs root partition..."
 
-parted -s "$DISK" 
-mkpart primary btrfs 513MiB 100%
+parted -s "$DISK" mkpart primary btrfs 513MiB 100%
 
 echo
 echo "Partitioning complete."
