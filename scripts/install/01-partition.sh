@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source "$(dirname "$0")/../../config.sh"
+source "$PROJECT_ROOT/config.sh"
 
 echo "====================================="
 echo "PKZ Linux - Partitioning"

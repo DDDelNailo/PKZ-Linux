@@ -2,11 +2,14 @@
 
 set -euo pipefail
 
-source ./config.sh
+PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
+export PROJECT_ROOT
+
+source "$PROJECT_ROOT/config.sh"
 
 echo "PKZ Linux Installer"
 
-./scripts/install/01-partition.sh
+bash "$PROJECT_ROOT/install/01-partition.sh"
 
 echo
 echo "Installation complete."
