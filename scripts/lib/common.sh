@@ -21,3 +21,11 @@ load_config() {
     
     loading_done
 }
+
+list_disks() {
+    while read -r disk size; do
+        echo "- $disk ($size)"
+        done < <(
+        lsblk -dno PATH,SIZE | grep "^/dev/sd\|^/dev/nvme\|^/dev/vd"
+    )
+}
