@@ -10,6 +10,7 @@ require_root
 load_config
 
 step "Partitioning Disk"
+require_command parted
 
 info "Detected:"
 list_disks
