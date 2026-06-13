@@ -16,7 +16,6 @@ require_command mkfs.btrfs
 EFI_PARTITION="$(get_partition_path "$DISK" 1)"
 ROOT_PARTITION="$(get_partition_path "$DISK" 2)"
 
-info "Target disk from config: $DISK"
 info "EFI partition: $EFI_PARTITION"
 info "Root partition: $ROOT_PARTITION"
 
