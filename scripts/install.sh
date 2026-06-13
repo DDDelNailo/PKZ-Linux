@@ -5,12 +5,16 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
 export PROJECT_ROOT
 
-source "$PROJECT_ROOT/config.sh"
+source "$PROJECT_ROOT/lib/common.sh"
+source "$PROJECT_ROOT/lib/logging.sh"
 
-echo "PKZ Linux Installer"
+step "PKZ Linux Installer"
+
+loading "Loading config..."
+source "$PROJECT_ROOT/config.sh"
+loading_done
 
 bash "$PROJECT_ROOT/install/01-partition.sh"
 
-echo
-echo "Installation complete."
-echo "You may now reboot."
+success "Installation complete."
+info "You may now reboot."
