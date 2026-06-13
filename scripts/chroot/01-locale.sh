@@ -2,20 +2,33 @@
 
 set -euo pipefail
 
-read -rp "Target disk (example: /dev/sda): " DISK
+source /pkz/lib/logging.sh
+source /pkz/lib/common.sh
+source /pkz/config.sh
 
-echo
-echo "WARNING: Everything on $DISK will be erased."
-read -rp "Continue? [y/N] " CONFIRM
+step "Configuring Localization"
+require_command ln
+require_command locale-gen
 
-[[ "$CONFIRM" == "y" ]]
+info "Setting hostname"
+echo "$HOSTNAME" > /etc/hostname
 
-parted -s "$DISK" mklabel gpt
+info "Setting timezone"
+ln -sf "/usr/share/zoneinfo/$TIMEZONE" /etc/localtime
 
-parted -s "$DISK" mkpart ESP fat32 1MiB 513MiB
-parted -s "$DISK" set 1 esp on
+info "Configuring locale"
+sed -i "s/^#${LANGUAGE}/${LANGUAGE}/" /etc/locale.gen
 
-parted -s "$DISK" mkpart primary btrfs 513MiB 100%
+locale-gen
 
-echo "Partitioning complete."
+cat > /etc/locale.conf <<EOF
+LANG=$LANGUAGE
+EOF
 
+info "Configuring keyboard layout"
+
+cat > /etc/vconsole.conf <<EOF
+KEYMAP=$KEYMAP
+EOF
+
+success "Localization configured"

@@ -4,9 +4,8 @@
 DISK="/dev/sda"
 EFI_SIZE="512MiB"
 
-# HOSTNAME="pkz-lab"
-# USERNAME="del"
-
-# TIMEZONE="America/Recife"
-# LOCALE="en_US.UTF-8"
-# KEYMAP="br-abnt2"
+# Locale
+HOSTNAME="pkz-lab"
+TIMEZONE="America/Recife"
+LANGUAGE="en_US.UTF-8"
+KEYMAP="br-abnt2"
