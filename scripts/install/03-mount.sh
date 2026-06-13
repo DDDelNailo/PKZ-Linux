@@ -25,6 +25,14 @@ if ! confirm_action "Mount $ROOT_PARTITION to /mnt and $EFI_PARTITION to /mnt/bo
     exit 1
 fi
 
+if is_mounted /mnt; then
+    warn "/mnt is already mounted"
+    
+    if ! confirm_action "Continue anyway?"; then
+        exit 1
+    fi
+fi
+
 info "Mounting root partition"
 mount "$ROOT_PARTITION" /mnt
 

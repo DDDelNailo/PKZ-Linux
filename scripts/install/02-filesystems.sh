@@ -19,6 +19,14 @@ ROOT_PARTITION="$(get_partition_path "$DISK" 2)"
 info "EFI partition: $EFI_PARTITION"
 info "Root partition: $ROOT_PARTITION"
 
+TYPE="$(
+    blkid -s TYPE -o value "$ROOT_PARTITION" 2>/dev/null || true
+)"
+
+if [[ -n "$TYPE" ]]; then
+    warn "$ROOT_PARTITION already contains a $TYPE filesystem"
+fi
+
 echo
 if ! confirm_action "Format $EFI_PARTITION as FAT32 and $ROOT_PARTITION as Btrfs?"; then
     warn "Operation cancelled."

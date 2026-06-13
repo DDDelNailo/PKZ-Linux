@@ -33,10 +33,16 @@ list_disks() {
 get_partition_path() {
     local disk="$1"
     local number="$2"
-
+    
     if [[ "$disk" =~ nvme ]]; then
         echo "${disk}p${number}"
     else
         echo "${disk}${number}"
     fi
+}
+
+is_mounted() {
+    local path="$1"
+    
+    mountpoint -q "$path"
 }
