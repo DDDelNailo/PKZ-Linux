@@ -7,9 +7,9 @@ source "$PROJECT_ROOT/lib/ui.sh"
 source "$PROJECT_ROOT/lib/common.sh"
 
 require_root
-load_config
 
 step "Creating Filesystems"
+load_config
 require_command mkfs.fat
 require_command mkfs.btrfs
 

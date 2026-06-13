@@ -7,9 +7,9 @@ source "$PROJECT_ROOT/lib/ui.sh"
 source "$PROJECT_ROOT/lib/common.sh"
 
 require_root
-load_config
 
 step "Partitioning Disk"
+load_config
 require_command parted
 
 info "Detected:"
