@@ -16,7 +16,7 @@ info "Target disk: $DISK"
 
 lsblk "$DISK"
 
-if ! confirm_destruction "$DISK"; then
+if ! confirm_action "This action will partition $DISK."; then
     warn "Operation cancelled."
     exit 1
 fi

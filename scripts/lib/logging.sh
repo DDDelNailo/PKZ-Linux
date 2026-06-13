@@ -1,5 +1,3 @@
-# lib/logging.sh
-
 info() {
     echo "[INFO] $*"
 }

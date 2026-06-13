@@ -10,10 +10,6 @@ source "$PROJECT_ROOT/lib/logging.sh"
 
 step "PKZ Linux Installer"
 
-loading "Loading config..."
-source "$PROJECT_ROOT/config.sh"
-loading_done
-
 bash "$PROJECT_ROOT/install/01-partition.sh"
 
 success "Installation complete."
