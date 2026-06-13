@@ -24,7 +24,7 @@ BASE_PACKAGES=(
 
 info "Base packages to install: ${BASE_PACKAGES[*]}"
 
-if ! confirm_action "Install base system with packages: ${BASE_PACKAGES[*]}?"; then
+if ! confirm_action "Install base system with packages?"; then
     warn "Operation cancelled."
     exit 1
 fi
