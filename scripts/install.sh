@@ -38,9 +38,11 @@ run_script() {
 }
 
 run_all() {
-    while read -r script; do
+    mapfile -t scripts < <(get_scripts)
+    
+    for script in "${scripts[@]}"; do
         run_script "$script"
-    done < <(get_scripts)
+    done
 }
 
 run_single() {
@@ -50,10 +52,12 @@ run_single() {
 }
 
 run_from() {
+    mapfile -t scripts < <(get_scripts)
+    
     local start="$1"
     local running=false
     
-    while read -r script; do
+    for script in "${scripts[@]}"; do
         local name
         name="$(basename "$script")"
         
