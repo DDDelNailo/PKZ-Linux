@@ -3,23 +3,48 @@ confirm_action() {
     local response
     
     while true; do
-        read -r -p "$prompt (y/n): " response
+        if ! read -r -p "$prompt (y/n): " response; then
+            echo
+            echo "READ FAILED"
+            return 1
+        fi
         
         case "$response" in
             [yY]|[yY][eE][sS])
                 return 0
             ;;
-            
             [nN]|[nN][oO])
                 return 1
             ;;
-            
             *)
                 echo "Invalid input. Please enter y or n."
             ;;
         esac
     done
 }
+
+# confirm_action() {
+#     local prompt="${1:-Continue?}"
+#     local response
+
+#     while true; do
+#         read -r -p "$prompt (y/n): " response
+
+#         case "$response" in
+#             [yY]|[yY][eE][sS])
+#                 return 0
+#             ;;
+
+#             [nN]|[nN][oO])
+#                 return 1
+#             ;;
+
+#             *)
+#                 echo "Invalid input. Please enter y or n."
+#             ;;
+#         esac
+#     done
+# }
 
 ask_input() {
     local prompt="$1"
