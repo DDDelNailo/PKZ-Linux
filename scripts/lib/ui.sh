@@ -39,3 +39,34 @@ ask_input_default() {
     
     echo "${value:-$default}"
 }
+
+select_option() {
+    local prompt="$1"
+    shift
+    
+    local options=("$@")
+    local choice
+    
+    echo >&2
+    echo "$prompt" >&2
+    echo >&2
+    
+    for i in "${!options[@]}"; do
+        printf "%d) %s\n" "$((i + 1))" "${options[$i]}" >&2
+    done
+    
+    echo >&2
+    
+    while true; do
+        read -r -p "Choice: " choice
+        
+        if [[ "$choice" =~ ^[0-9]+$ ]] &&
+        (( choice >= 1 && choice <= ${#options[@]} )); then
+            
+            echo "${options[$((choice - 1))]}"
+            return 0
+        fi
+        
+        echo "Invalid selection." >&2
+    done
+}
