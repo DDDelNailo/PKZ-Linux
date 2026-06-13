@@ -21,5 +21,5 @@ load_config() {
     
     source "$PROJECT_ROOT/config.sh"
     
-    done_msg
+    loading_done
 }
