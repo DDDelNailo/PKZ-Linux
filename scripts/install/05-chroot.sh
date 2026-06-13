@@ -18,6 +18,12 @@ mkdir -p /mnt/pkz
 cp -r \
 "$PROJECT_ROOT/chroot" \
 /mnt/pkz/
+cp -r \
+"$PROJECT_ROOT/config.sh" \
+/mnt/pkz/
+cp -r \
+"$PROJECT_ROOT/lib" \
+/mnt/pkz/
 
 success "Project files copied"
 
