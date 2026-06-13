@@ -20,15 +20,14 @@ info "Configuring locale"
 sed -i "s/^#${LANGUAGE}/${LANGUAGE}/" /etc/locale.gen
 
 locale-gen
-
 cat > /etc/locale.conf <<EOF
 LANG=$LANGUAGE
 EOF
 
 info "Configuring keyboard layout"
-
 cat > /etc/vconsole.conf <<EOF
 KEYMAP=$KEYMAP
 EOF
+loadkeys br-abnt2
 
 success "Localization configured"
