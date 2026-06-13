@@ -11,4 +11,4 @@ LANGUAGE="en_US.UTF-8"
 KEYMAP="br-abnt2"
 
 # Users
-USERNAME="pkz"
+USERNAME="del"
