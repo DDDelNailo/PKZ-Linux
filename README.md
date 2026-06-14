@@ -26,7 +26,7 @@ If a component cannot be explained, it should be researched and documented befor
 
 ## Current Status
 
-* [ ] Phase 1: Base Arch Installation
+* [x] Phase 1: Base Arch Installation
 * [ ] Phase 2: Core System Configuration
 * [ ] Phase 3: Desktop Environment
 * [ ] Phase 4: Development Environment
