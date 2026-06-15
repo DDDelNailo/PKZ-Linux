@@ -1,120 +1,242 @@
-# Phase 02 - Core Services
+# Phase 2 - Core Services Checklist
 
-## Objective
+## Systemd Fundamentals
 
-Build a reliable terminal-only environment and understand how Linux services operate.
+### Learn
 
-## Services Added
+* [x] What a service is
+* [x] What a target is
+* [x] What a timer is
+* [x] What happens during boot
 
-| Service | Purpose | Enabled |
-| ------- | ------- | ------- |
-|         |         |         |
-|         |         |         |
+### Commands
+
+* [ ] systemctl status
+* [ ] systemctl start
+* [ ] systemctl stop
+* [ ] systemctl restart
+* [ ] systemctl enable
+* [ ] systemctl disable
+* [ ] systemctl list-units
+* [ ] systemctl list-unit-files
+
+### Exercises
+
+* [ ] Enable a service
+* [ ] Disable a service
+* [ ] Create a custom service
+* [ ] Create a custom timer
+
+## Logging
+
+### Learn
+
+* [ ] How journald works
+* [ ] Boot logs
+* [ ] Service logs
+* [ ] Log filtering
+
+### Commands
+
+* [ ] journalctl -b
+* [ ] journalctl -u SERVICE
+* [ ] journalctl -p warning
+* [ ] journalctl -f
+
+### Exercises
+
+* [ ] View logs from current boot
+* [ ] View logs from previous boot
+* [ ] Debug a failing service
 
 ## Networking
 
-Network Solution:
+### Learn
 
-Reason:
+* [x] Network interfaces
+* [x] IP addresses
+* [x] DNS
+* [x] Routing
 
-Commands Learned:
+### Commands
 
-Important Files:
+* [x] ip addr
+* [x] ip route
+* [x] ping
+* [x] ss
+* [ ] resolvectl
 
-## User Management
+### Exercises
 
-Users Created:
-
-Groups Used:
-
-Why These Groups Exist:
+* [ ] Inspect current network configuration
+* [ ] Verify DNS resolution
+* [ ] Troubleshoot a broken connection
 
 ## SSH
 
-Installed:
+### Install
 
-Configuration Notes:
+* [x] openssh
 
-Security Decisions:
+### Learn
 
-## Systemd Exploration
+* [x] SSH client
+* [x] SSH server
+* [x] Authentication
+* [x] Host keys
 
-Useful Commands:
+### Exercises
 
-What They Do:
+* [x] Connect locally
+* [x] Connect from another machine
+* [x] Use SSH keys
+* [x] Disable password authentication
+* [x] Generate an SSH key
+* [x] Install the key
+* [x] Login without a password
+* [x] Use scp to transfer a file
 
-### systemctl
+## Users And Permissions
 
-Notes:
+### Learn
 
-### journalctl
+* [x] Users
+* [x] Groups
+* [x] Ownership
+* [x] Permissions
 
-Notes:
+### Commands
 
-### timers
+* [ ] useradd
+* [ ] usermod
+* [ ] passwd
+* [ ] chmod
+* [ ] chown
+* [ ] id
 
-Notes:
+### Exercises
 
-## Monitoring Tools
-
-Installed:
-
-Reason:
+* [ ] Create a user
+* [ ] Create a group
+* [ ] Share files through a group
+* [ ] Restrict access to a file
 
 ## Package Management
 
-Pacman Notes:
+### Learn
 
-Useful Commands:
+* [x] Package installation
+* [x] Package removal
+* [x] Package updates
+* [x] Package queries
 
-Things To Remember:
+### Commands
 
-## Filesystem Exploration
+* [x] pacman -S (install)
+* [x] pacman -R (remove)
+* [x] pacman -Rns (remove + config files + dependencies)
+* [x] pacman -Syu (sync + refresh database + upgrade)
+* [x] pacman -Ss (search)
+* [x] pacman -Qi (query info)
+* [x] pacman -Ql (query contents)
+* [x] pacman -Qdt (query orphaned dependencies)
 
-### /etc
+### Exercises
 
-Purpose:
+* [x] Install packages
+* [x] Remove packages
+* [x] Investigate package contents
 
-Important Files:
+## Storage
 
-### /usr
+### Learn
 
-Purpose:
+* [ ] Mount points
+* [ ] Filesystems
+* [ ] Btrfs basics
 
-Important Files:
+### Commands
 
-### /var
+* [ ] lsblk
+* [ ] mount
+* [ ] findmnt
+* [ ] df
+* [ ] du
 
-Purpose:
+### Exercises
 
-Important Files:
+* [ ] Mount a filesystem manually
+* [ ] Inspect Btrfs information
+* [ ] Analyze disk usage
 
-### /home
+## Processes
 
-Purpose:
+### Learn
 
-Important Files:
+* [ ] Processes
+* [ ] Signals
+* [ ] Foreground vs background jobs
 
-## Verification Checklist
+### Commands
 
-* [ ] SSH works
-* [ ] Networking survives reboot
-* [ ] Services start correctly
-* [ ] No failed services
-* [ ] System logs understood
+* [ ] ps
+* [ ] top
+* [ ] kill
+* [ ] killall
+* [ ] jobs
+* [ ] bg
+* [ ] fg
 
-## What I Learned
+### Exercises
 
-1.
+* [ ] Kill a process
+* [ ] Suspend a process
+* [ ] Run background jobs
 
-2.
+## Monitoring Tools
 
-3.
+### Install
 
-## Questions For Future Research
+* [ ] htop
+* [ ] btop
+* [x] tree
+* [ ] lsof
+* [ ] strace
 
-1.
+### Learn
 
-2.
+* [ ] CPU monitoring
+* [ ] Memory monitoring
+* [ ] Open files
+* [ ] System calls
 
-3.
+## Filesystem Hierarchy
+
+### Explore
+
+* [ ] /etc
+* [ ] /usr
+* [ ] /var
+* [ ] /home
+* [ ] /boot
+* [ ] /proc
+* [ ] /sys
+* [ ] /run
+
+### Goal
+
+Understand why each directory exists.
+
+## Phase Completion
+
+The system should be manageable entirely from a TTY.
+
+Success Criteria:
+
+* [ ] Network works reliably
+* [x] SSH works
+* [ ] Services can be managed confidently
+* [ ] Logs can be inspected and understood
+* [x] Package management is understood
+* [ ] Users and permissions are understood
+* [ ] Common problems can be diagnosed without a GUI
